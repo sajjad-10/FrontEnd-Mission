@@ -68,6 +68,7 @@ toggle.addEventListener("click", (e) => {
 function setTime() {
     const time = new Date();
     const todayJalali = time.toLocaleDateString("fa-IR");
+    const year = time.getFullYear();
     const month = time.getMonth();
     const day = time.getDay();
     const date = time.getDate();
@@ -103,14 +104,16 @@ function setTime() {
         minutes < 10 ? `0${minutes}` : `${minutes} ${ampm}`
     }`;
 
-    dateEl.innerHTML = `${days[day]}, ${month[month]} <span class="circle">${date}</span>`;
+    dateEl.innerHTML = `${days[day]}, ${month[month]} <span class="circle">${date}</span> ${year}`;
     jalaliEl.innerHTML = `${time.toLocaleDateString("fa-IR", {
         weekday: "long",
     })}, ${time.toLocaleDateString("fa-IR", {
         month: "long",
     })} <span class="circle">${time.toLocaleDateString("fa-IR", {
         day: "numeric",
-    })}</span>`;
+    })}</span> ${time.toLocaleDateString("fa-IR", {
+        year: 'numeric',
+    })}`;
 }
 
 const scale = (num, in_min, in_max, out_min, out_max) => {
