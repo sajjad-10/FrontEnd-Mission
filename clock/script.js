@@ -104,9 +104,11 @@ function setTime() {
     }`;
 
     dateEl.innerHTML = `${days[day]}, ${month[month]} <span class="circle">${date}</span>`;
-    jalaliEl.innerHTML = `${jalaliDays[day]}, ${
-        jalaliMonths[month]
-    } <span class="circle">${time.toLocaleDateString("fa-IR", {
+    jalaliEl.innerHTML = `${time.toLocaleDateString("fa-IR", {
+        weekday: "long",
+    })}, ${time.toLocaleDateString("fa-IR", {
+        month: "long",
+    })} <span class="circle">${time.toLocaleDateString("fa-IR", {
         day: "numeric",
     })}</span>`;
 }
